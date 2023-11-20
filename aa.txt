@@ -1,0 +1,93 @@
+ /*CREATE TABLE Employees (
+    empid INT PRIMARY KEY,
+    name VARCHAR(50),
+    address VARCHAR(100),
+    city VARCHAR(50),
+    dob DATE,
+    date_of_joining DATE,
+    gender CHAR(1) CHECK (gender IN ('M', 'F')),
+    salary DECIMAL(10, 2),
+    deptno INT,
+    mobile_number VARCHAR(15)
+);
+
+CREATE TABLE Dept (
+    Deptno INT PRIMARY KEY,
+    Name VARCHAR(50),
+    Location VARCHAR(50),
+    Managerempid INT,
+    FOREIGN KEY (Managerempid) REFERENCES Employees(empid)
+);
+
+
+CREATE TABLE Project (
+    Projectid INT PRIMARY KEY,
+    title VARCHAR(100),
+    city VARCHAR(50)
+);
+
+CREATE TABLE Works (
+    empid INT,
+    Projectid INT,
+    total_hrs_worked INT,
+    PRIMARY KEY (empid, Projectid),
+    FOREIGN KEY (empid) REFERENCES Employees(empid),
+    FOREIGN KEY (Projectid) REFERENCES Project(Projectid)
+);
+CREATE TABLE Dependant (
+    empid INT,
+    name_of_dependant VARCHAR(50),
+    age INT,
+    relation VARCHAR(20),
+    PRIMARY KEY (empid, name_of_dependant),
+    FOREIGN KEY (empid) REFERENCES Employees(empid)
+);
+
+INSERT INTO Employees (name, empid, address, dob, date_of_joining, gender, salary, deptno)
+VALUES
+    ('John Doe', 101, '123 Main St', '1990-01-15', '2020-02-01', 'M', 60000, 1),
+    ('Alice Smith', 102, '456 Oak St', '1988-05-20', '2019-03-15', 'F', 55000, 2),
+    ('Bob Johnson', 103, '789 Pine St', '1995-11-10', '2021-01-10', 'M', 70000, 3),
+    ('Eva Williams', 104, '101 Elm St', '1993-03-25', '2018-08-05', 'F', 65000, 4),
+    ('Charlie Brown', 105, '202 Maple St', '1985-08-12', '2017-06-20', 'M', 80000, 5);
+   
+INSERT INTO Dept (Deptno, Name, Location, Managerempid)
+VALUES
+    (1, 'Development', 'Building 1', 101),
+    (2, 'Testing', 'Building 2', 102),
+    (3, 'Planning', 'Building 3', 103),
+    (4, 'Service', 'Main building', 104),
+    (5, 'Administration', 'Building 2', 105);
+
+ 
+INSERT INTO Project (Projectid, title, city)
+VALUES
+    (1, 'Banking Project', 'New York'),
+    (2, 'Testing Project', 'San Francisco'),
+    (3, 'ERP System', 'Los Angeles'),
+    (4, 'Software Management', 'Chicago');
+
+INSERT INTO Dependant (empid, name_of_dependant, age, relation)
+VALUES
+    (101, 'Jane Doe', 12, 'Daughter'),
+    (102, 'Sam Smith', 8, 'Son'),
+    (103, 'Mary Johnson', 25, 'Spouse'),
+    (104, 'Alex Williams', 20, 'Sibling'),
+    (105, 'Grace Brown', 18, 'Cousin');
+    
+INSERT INTO Works (empid, Projectid, total_hrs_worked)
+VALUES
+    (101, 1, 50),
+    (102, 1, 45),
+    (103, 2, 55),
+    (104, 3, 60),
+    (105, 4, 48);
+  
+ Alter table Employees Add Column mob_no int;
+ 
+   Update Employees set mob_no = 999 where empid = 101;
+     
+   Delete from Project where title = 'Testing Project'; */
+   show create table Works;
+
+
